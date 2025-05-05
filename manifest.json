@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "AI Problem Solver",
+  "version": "1.0",
+  "description": "Reads problem statements from web pages and generates coding/system design solutions using AI.",
+  "permissions": ["scripting", "activeTab", "storage"],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": "assets/icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": ["<all_urls>"],
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": true
+  }
+}
